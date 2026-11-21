@@ -29,6 +29,17 @@ details[open] .mb-chev{transform:rotate(180deg)}
 .mb-burger{display:flex !important}
 .mb-bar{display:flex !important}
 }
+html,body{overflow-x:hidden}
+.mb-mnav{display:none}
+@media (max-width: 760px){
+.mb-mnav.open{display:flex;flex-direction:column;gap:4px;padding:8px 20px 20px;border-top:1px solid rgba(255,255,255,0.08)}
+.mb-mnav a{color:#E3ECF1;text-decoration:none;font-size:17px;font-weight:600;padding:12px 4px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.mb-mnav a.mb-mnav-cta{margin-top:12px;border:0;text-align:center;background:#D6286A;color:#FFFFFF;border-radius:999px;padding:14px 20px}
+.mb-2col{grid-template-columns:1fr !important}
+.mb-form{padding:22px !important}
+.mb-book{width:210px !important}
+.mb-pad{padding:28px 24px !important}
+}
 </style>
 </head>
 <body>
@@ -50,8 +61,9 @@ details[open] .mb-chev{transform:rotate(180deg)}
 <a href="#preguntas" style="color: #C9D6DE; text-decoration: none">Preguntas frecuentes</a>
 <a class="mb-cta" href="#contacto" style="background: #D6286A; color: #FFFFFF; font-weight: 700; text-decoration: none; padding: 12px 22px; border-radius: 999px; box-shadow: 0 0 0 4px rgba(214,40,106,0.18), 0 10px 24px rgba(214,40,106,0.35)">Solicitar propuesta</a>
 </nav>
-<button class="mb-burger" aria-label="Abrir menú" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.16); background: rgba(255,255,255,0.06); align-items: center; justify-content: center; padding: 0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+<button class="mb-burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mb-mnav" onclick="var m=document.getElementById('mb-mnav');var o=m.classList.toggle('open');this.setAttribute('aria-expanded',o)" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.16); background: rgba(255,255,255,0.06); align-items: center; justify-content: center; padding: 0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
 </div>
+<nav id="mb-mnav" class="mb-mnav" aria-label="Menú móvil" onclick="if(event.target.tagName==='A'){this.classList.remove('open')}"><a href="#servicios">Servicios</a><a href="#guias">Guías digitales</a><a href="#como">Cómo trabajo</a><a href="#experiencia">Experiencia</a><a href="#sobre-mi">Sobre mí</a><a href="#preguntas">Preguntas frecuentes</a><a class="mb-mnav-cta" href="#contacto">Solicitar propuesta →</a></nav>
 </header>
 <!-- 1 · HÉROE -->
 <section id="inicio" style="position: relative; overflow: hidden; background: radial-gradient(900px 500px at 85% 10%, rgba(67,191,199,0.22), transparent 60%), radial-gradient(700px 500px at 0% 100%, rgba(214,40,106,0.18), transparent 60%), linear-gradient(180deg, #0E1B25 0%, #142838 100%)">
@@ -173,7 +185,7 @@ details[open] .mb-chev{transform:rotate(180deg)}
 </div>
 <!-- GUÍAS · Welcome books (integrado en servicios) -->
 <article id="guias" aria-labelledby="guias-t" class="mb-lift" style="border-radius: 22px; overflow: hidden; background: #FFFFFF; border: 1px solid #E1E9ED; border-top: 4px solid #D6286A; box-shadow: 0 16px 36px rgba(37,55,70,0.08); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr))">
-<div style="padding: 40px 40px 40px 44px; display: flex; flex-direction: column; justify-content: center; gap: 18px">
+<div class="mb-pad" style="padding: 40px 40px 40px 44px; display: flex; flex-direction: column; justify-content: center; gap: 18px">
 <div style="display: flex; align-items: center; gap: 14px"><span style="width: 56px; height: 56px; flex-shrink: 0; border-radius: 16px; background: rgba(214,40,106,0.10); display: flex; align-items: center; justify-content: center; font-size: 28px">📖</span><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #D6286A">Experiencia del huésped</span></div>
 <h3 id="guias-t" style="margin: 0; font-family: Manrope, sans-serif; font-weight: 800; font-size: clamp(28px, 3vw, 36px); line-height: 1.15; letter-spacing: -0.02em">Welcome books para mejorar la experiencia de <span style="color: #246B8E">tus huéspedes</span></h3>
 <p style="margin: 0; color: #5B6B77; font-size: 17px">Diseño guías digitales personalizadas para alojamientos turísticos, con información práctica de la propiedad y recomendaciones para descubrir el destino.</p>
@@ -186,7 +198,7 @@ details[open] .mb-chev{transform:rotate(180deg)}
 <div style="padding: 36px 24px 28px; background: radial-gradient(420px 300px at 70% 30%, rgba(240,96,154,0.16), transparent 70%), linear-gradient(160deg, #F5F8FA 0%, #E9F7F8 100%); display: flex; align-items: center; justify-content: center">
 <figure style="margin: 0; display: flex; flex-direction: column; align-items: center; gap: 14px">
 <div style="perspective: 1600px; padding: 10px 30px 24px">
-<div style="position: relative; width: 320px; transform: rotateY(-8deg); transform-style: preserve-3d">
+<div class="mb-book" style="position: relative; width: 320px; transform: rotateY(-8deg); transform-style: preserve-3d">
 <div aria-hidden="true" style="position: absolute; top: 6px; bottom: -6px; left: 8px; right: -12px; border-radius: 3px 8px 8px 3px; background: repeating-linear-gradient(90deg, #FBF8F2 0px, #FBF8F2 2px, #E6DDCB 2px, #E6DDCB 3px); box-shadow: 0 28px 50px rgba(17,64,79,0.35)"></div>
 <div aria-hidden="true" style="position: absolute; top: 3px; bottom: -3px; left: 4px; right: -6px; border-radius: 3px 8px 8px 3px; background: #F4EEE2; border: 1px solid #DDD3C0"></div>
 <div style="position: relative; border-radius: 3px 8px 8px 3px; overflow: hidden; box-shadow: 0 2px 0 rgba(0,0,0,0.06), 0 18px 34px rgba(17,64,79,0.28)">
@@ -339,10 +351,10 @@ details[open] .mb-chev{transform:rotate(180deg)}
 <li style="border-radius: 16px; padding: 18px 20px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); display: flex; gap: 14px; align-items: flex-start"><span style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 15px; color: #0E1B25; background: #9BE3E8; border-radius: 10px; padding: 4px 9px; flex-shrink: 0">04</span><span style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase; color: #FFFFFF">Primera revisión</span><span style="font-size: 15px; color: #D7E4EA">Revisamos cómo está funcionando el servicio y ajustamos lo acordado si hace falta.</span></span></li>
 </ol>
 </div>
-<form aria-label="Solicitar propuesta" style="border-radius: 22px; background: #FFFFFF; color: #253746; padding: 32px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 24px 50px rgba(14,27,37,0.30)">
+<form class="mb-form" aria-label="Solicitar propuesta" style="border-radius: 22px; background: #FFFFFF; color: #253746; padding: 32px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 24px 50px rgba(14,27,37,0.30)">
 <span style="font-family: Manrope, sans-serif; font-weight: 800; font-size: 22px">Solicitar propuesta</span>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px"><label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #253746">Nombre<input type="text" style="height: 46px; border-radius: 12px; border: 1px solid #C9D6DE; background: #F5F8FA; padding: 0 14px; font: inherit; font-weight: 400; color: #253746"></label><label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #253746">Empresa<input type="text" style="height: 46px; border-radius: 12px; border: 1px solid #C9D6DE; background: #F5F8FA; padding: 0 14px; font: inherit; font-weight: 400; color: #253746"></label></div>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px"><label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #253746">Email profesional<input type="email" style="height: 46px; border-radius: 12px; border: 1px solid #C9D6DE; background: #F5F8FA; padding: 0 14px; font: inherit; font-weight: 400; color: #253746"></label><label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #253746">Número de alojamientos<input type="number" style="height: 46px; border-radius: 12px; border: 1px solid #C9D6DE; background: #F5F8FA; padding: 0 14px; font: inherit; font-weight: 400; color: #253746"></label></div>
+<div class="mb-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px"><label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #253746">Nombre<input type="text" style="height: 46px; border-radius: 12px; border: 1px solid #C9D6DE; background: #F5F8FA; padding: 0 14px; font: inherit; font-weight: 400; color: #253746"></label><label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #253746">Empresa<input type="text" style="height: 46px; border-radius: 12px; border: 1px solid #C9D6DE; background: #F5F8FA; padding: 0 14px; font: inherit; font-weight: 400; color: #253746"></label></div>
+<div class="mb-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px"><label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #253746">Email profesional<input type="email" style="height: 46px; border-radius: 12px; border: 1px solid #C9D6DE; background: #F5F8FA; padding: 0 14px; font: inherit; font-weight: 400; color: #253746"></label><label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #253746">Número de alojamientos<input type="number" style="height: 46px; border-radius: 12px; border: 1px solid #C9D6DE; background: #F5F8FA; padding: 0 14px; font: inherit; font-weight: 400; color: #253746"></label></div>
 <label style="flex: 1; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #253746">¿Qué apoyo necesita tu equipo?<textarea rows="4" style="flex: 1; min-height: 110px; border-radius: 12px; border: 1px solid #C9D6DE; background: #F5F8FA; padding: 12px 14px; font: inherit; font-weight: 400; color: #253746; resize: vertical"></textarea><span style="font-size: 13px; font-weight: 400; color: #5B6B77">Indica las tareas, las fechas o las franjas de cobertura que necesitas.</span></label>
 <button type="button" class="mb-cta" style="align-self: flex-start; border: 0; cursor: pointer; background: #D6286A; color: #FFFFFF; font: inherit; font-weight: 700; font-size: 17px; padding: 16px 30px; border-radius: 999px; box-shadow: 0 0 0 4px rgba(214,40,106,0.14), 0 10px 24px rgba(214,40,106,0.32)">Enviar solicitud →</button>
 <span style="font-size: 13px; color: #5B6B77">Al enviarla verás: «He recibido tu solicitud. Me pondré en contacto contigo en el correo que has indicado.»</span>
